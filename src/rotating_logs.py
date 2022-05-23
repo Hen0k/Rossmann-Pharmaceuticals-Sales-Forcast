@@ -15,6 +15,13 @@ def get_rotating_log(path: str) -> logging.Logger:
                                 backupCount=1)
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
+
+    c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+    f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+    console_handler.setFormatter(c_format)
+    rot_handler.setFormatter(f_format)
+
     logger.addHandler(rot_handler)
     logger.addHandler(console_handler)
 
