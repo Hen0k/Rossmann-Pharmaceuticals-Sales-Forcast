@@ -20,15 +20,22 @@ class DataLoader:
         Returns:
             pd.DataFrame
         """
-        content = dvc.api.read(path=path,
-                               repo=repo,
-                               rev=version)
-        df = pd.read_csv(io.StringIO(content), sep=",")
-
-        return df
+        try:
+            content = dvc.api.read(path=path,
+                                repo=repo,
+                                rev=version)
+            df = pd.read_csv(io.StringIO(content), sep=",")
+            logger.info(f"DVC: CSV file read with path: {path} | version: {version} | from: {repo}")
+            return df
+        except:
+            logger.exception("DVC data getter raised an exception")
+        
 
     @staticmethod
     def read_csv(path: str) -> pd.DataFrame:
-        df = pd.read_csv(path)
-
-        return df
+        try:
+            df = pd.read_csv(path)
+            logger.info(f"Pandas: CSV read from: {path}")
+            return df
+        except:
+            logger.exception(f"Pandas failed to read the csv at: {path}")
