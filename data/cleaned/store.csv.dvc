@@ -1,0 +1,4 @@
+outs:
+- md5: b306c449291c8d13a752b35c66a4d420
+  size: 60014
+  path: store.csv
