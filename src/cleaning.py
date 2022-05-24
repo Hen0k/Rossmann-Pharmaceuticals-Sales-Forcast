@@ -44,7 +44,7 @@ class CleanDataFrame:
             if not replace_with:
                 replace_with = CleanDataFrame.get_mct(df[column], method)
             df.loc[indecies, column] = replace_with
-            logger(f"Replacing missing values in column: {column} with method: {method}")
+            logger.info(f"Replacing missing values in column: {column} with method: {method}")
 
         return df
 
