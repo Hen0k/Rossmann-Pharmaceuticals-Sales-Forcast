@@ -1,8 +1,10 @@
 import pandas as pd
 import numpy as np
 from src.cleaning import CleanDataFrame
+from src.rotating_logs import get_rotating_log
 
 
+logger = get_rotating_log(filename='data_exploration.log', logger_name='AnalysisLogger')
 class Analysis:
     @staticmethod
     def get_univariate_analysis(df: pd.DataFrame) -> pd.DataFrame:

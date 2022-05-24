@@ -1,7 +1,10 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer
+from src.rotating_logs import get_rotating_log
 
+
+logger = get_rotating_log(filename='data_cleaner.log', logger_name='CleanDataFrameLogger')
 
 class CleanDataFrame:
 
@@ -15,33 +18,6 @@ class CleanDataFrame:
         categorical_columns = df.select_dtypes(
             include=['object']).columns.tolist()
         return categorical_columns
-
-    @staticmethod
-    def fix_datatypes(df: pd.DataFrame, column: str = None, to_type: type = None) -> pd.DataFrame:
-        """
-        Takes in the tellco dataframe an casts columns to proper data types.
-        Start and End -> from string to datetime.
-        Bearer Id, IMSI, MSISDN, IMEI -> From number to string
-        """
-        datetime_columns = ['Start',
-                            'End', ]
-        string_columns = [
-            'IMSI',
-            'MSISDN/Number',
-            'IMEI',
-            'Bearer Id'
-        ]
-        df_columns = df.columns
-        for col in string_columns:
-            if col in df_columns:
-                df[col] = df[col].astype(str)
-        for col in datetime_columns:
-            if col in df_columns:
-                df[col] = pd.to_datetime(df[col])
-        if column and to_type:
-            df[column] = df[column].astype(to_type)
-
-        return df
 
 
     @staticmethod
@@ -68,15 +44,10 @@ class CleanDataFrame:
             if not replace_with:
                 replace_with = CleanDataFrame.get_mct(df[column], method)
             df.loc[indecies, column] = replace_with
+            logger(f"Replacing missing values in column: {column} with method: {method}")
 
         return df
 
-    @staticmethod
-    def remove_null_row(df: pd.DataFrame, columns: str) -> pd.DataFrame:
-        for column in columns:
-            df = df[~ df[column].isna()]
-
-        return df
 
     @staticmethod
     def normal_scale(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -129,16 +100,6 @@ class CleanDataFrame:
         return df
 
     @staticmethod
-    def drop_unresponsive(df: pd.DataFrame) -> pd.DataFrame:
-        """
-        This drops rows where users didn't repond to the questioneer.
-        Meaning, rows where both yes and no columns have 0
-        """
-        df = df.query("yes==1 | no==1")
-
-        return df
-
-    @staticmethod
     def drop_columns(df: pd.DataFrame, columns: list = None) -> pd.DataFrame:
         """
         Drops columns that are not essesntial for modeling
@@ -149,47 +110,13 @@ class CleanDataFrame:
 
         return df
 
-    @staticmethod
-    def merge_response_columns(df: pd.DataFrame) -> pd.DataFrame:
-        """
-        This merges the one-hot-encoded target columns into
-        a single column named response, and drop the yes and no columns
-        """
-        df['response'] = [1] * df.shape[0]
-        df.loc[df['no'] == 1, 'response'] = 0
-
-        return df
-
-    @staticmethod
-    def convert_to_brands(df: pd.DataFrame) -> pd.DataFrame:
-        """
-        This converts the device model column in to 
-        `known` and `generic` brands. It then removes
-        the device_make column.
-        """
-        known_brands = ['samsung', 'htc', 'nokia',
-                        'moto', 'lg', 'oneplus',
-                        'iphone', 'xiaomi', 'huawei',
-                        'pixel']
-        makers = ["generic"]*df.shape[0]
-        for idx, make in enumerate(df['device_make'].values):
-            for brand in known_brands:
-                if brand in make.lower():
-                    makers[idx] = "known brand"
-                    break
-        df['brand'] = makers
-
-        return df
 
     def run_pipeline(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         This runs a series of cleaner methods on the df passed to it. 
         """
         df = self.drop_duplicates(df)
-        df = self.drop_unresponsive(df)
         df = self.date_to_day(df)
-        df = self.convert_to_brands(df)
-        df = self.merge_response_columns(df)
         df = self.drop_columns(df)
         df.reset_index(drop=True, inplace=True)
 
