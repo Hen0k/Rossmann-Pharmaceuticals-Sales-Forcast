@@ -5,7 +5,7 @@ import pandas as pd
 from src.rotating_logs import get_rotating_log
 
 
-logger = get_rotating_log(filename='data_loader.log')
+logger = get_rotating_log(filename='data_loader.log', logger_name='DataLoaderLogger')
 
 
 class DataLoader:
