@@ -4,7 +4,10 @@ from src.cleaning import CleanDataFrame
 from src.rotating_logs import get_rotating_log
 
 
-logger = get_rotating_log(filename='data_exploration.log', logger_name='AnalysisLogger')
+logger = get_rotating_log(
+    filename='data_exploration.log', logger_name='AnalysisLogger')
+
+
 class Analysis:
     @staticmethod
     def get_univariate_analysis(df: pd.DataFrame) -> pd.DataFrame:
@@ -45,7 +48,7 @@ class Analysis:
         cols_missing_val_count
 
         return cols_missing_val_count, cols_missing_val
-    
+
     @staticmethod
     def percent_missing(df):
         """
@@ -64,3 +67,16 @@ class Analysis:
         print("The dataset contains", round(
             ((totalMissing/totalCells) * 100), 2), "%", "missing values.")
 
+    @staticmethod
+    def check_date_range(df: pd.DataFrame) -> None:
+        """This function assumes df has a Date column and checks if 
+        there are missing dates by counting unique dates.
+        """
+        assert 'Date' in df.columns, "`Date` is not a column in df"
+        df['Date'] = pd.to_datetime(df['Date'])
+        start_date, end_date = df['Date'].aggregate([min, max])
+        print(
+            f"start_date: {start_date.date()} ----> end_date: {end_date.date()}")
+        unique_dates = df['Date'].unique()
+        print(f"There are {len(unique_dates)} unique dates in the data.\n\
+                The number of days between the end and start date is {(end_date-start_date).days}")

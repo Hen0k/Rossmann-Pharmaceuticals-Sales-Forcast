@@ -1,3 +1,4 @@
+from calendar import c
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, Normalizer
@@ -107,6 +108,14 @@ class CleanDataFrame:
         if not columns:
             columns = ['auction_id', 'date', 'yes', 'no', 'device_make']
         df.drop(columns=columns, inplace=True)
+
+        return df
+    
+    @staticmethod
+    def convert_type(df: pd.DataFrame, columns: list, to_type: type) -> pd.DataFrame:
+        """Converts columns data types according to the `to_type` parameter
+        """
+        df[columns] = df[columns].astype(to_type)
 
         return df
 
