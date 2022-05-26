@@ -16,12 +16,13 @@ jobs:
           pip install -r requirements.txt
       
       - name: fetch DVC data
-        run: |
-          env: 
+        env: 
             DATA_AUTH: ${{secrets.GDRIVE_AUTH}}
-          # Fetch the data
-          dvc remote modify filterout --local gdrive_user_credentials_file .dvc/tmp/gdrive-user-credentials.json
-          dvc pull
+        # run: |
+          
+        #   # Fetch the data
+        #   dvc remote modify filterout --local gdrive_user_credentials_file .dvc/tmp/gdrive-user-credentials.json
+        #   dvc pull -r filterout --verbose
       - name: Generate PR Report
         run: |
           echo "# Files in the data directory" > report.md
