@@ -3,32 +3,21 @@ on: [push]
 jobs:
   run:
     runs-on: ubuntu-latest
-    
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - uses: iterative/setup-cml@v1
-      - name: install dependencies
-        run: |
-          env:
-            REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      
-      - name: fetch DVC data
-        env: 
-            DATA_AUTH: ${{secrets.GDRIVE_AUTH}}
-        # run: |
+      - name: Metrics
+
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GDRIVE_TOKEN: ${{ secrets.GDRIVE_AUTH }}
+        run: |     
+          echo "# Hi 10Acadamy Team" > report.md
           
-        #   # Fetch the data
-        #   dvc remote modify filterout --local gdrive_user_credentials_file .dvc/tmp/gdrive-user-credentials.json
-        #   dvc pull -r filterout --verbose
-      - name: Generate PR Report
-        run: |
-          echo "# Files in the data directory" > report.md
-
-          ls data > report.md
-
-          echo "---" > report.md
-
+          echo "This is just to show that CML is working. I will add one of the EDA plots below." >> report.md
+          
+          cml publish ./images/piechart.png --md >> report.md
+          
           cml send-comment report.md
+
