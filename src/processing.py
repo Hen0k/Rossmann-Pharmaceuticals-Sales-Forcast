@@ -1,3 +1,4 @@
+from types import NoneType
 import pandas as pd
 from src.rotating_logs import get_rotating_log
 
@@ -7,43 +8,74 @@ logger = get_rotating_log(
 
 
 class PreProcess:
-    def __init__(self, df):
+    def __init__(self, df=None):
         self.df = df
-        assert 'Date' in self.df.columns
         self.holidays = None
+        self.columns_to_keep = [
+            'Assortment',
+            'CompetitionDistance',
+            'CompetitionOpenSinceMonth',
+            'CompetitionOpenSinceYear',
+            'Date',
+            'DayOfWeek',
+            'Open',
+            'Promo',
+            'Promo2',
+            'Promo2SinceWeek',
+            'Promo2SinceYear',
+            'PromoInterval',
+            'SchoolHoliday',
+            'StateHoliday',
+            'Store',
+            'StoreType'
+        ]
 
-    def generate_columns(self, df: pd.DataFrame) -> pd.DataFrame:
+    def transform(self, df: pd.DataFrame = None):
+        if not isinstance(df, NoneType):
+            self.df = df.copy()
+        assert 'Date' in self.df.columns
+        self._set_holidays()
+        self.drop_columns()
+        self.generate_columns()
+        logger.info("Feature enginerring completed")
+
+        return self.df
+
+    def drop_columns(self) -> None:
+        self.df = self.df[self.columns_to_keep]
+        logger.info(
+            f"Dropped {len(self.columns_to_keep)} columns since they are not in the test data")
+
+    def generate_columns(self) -> None:
         """Adds date related categorical columns to the dataframe"""
-        
-        self.df = self.create_holiday_distance_cols(self.df)
-        self.df['Year'] = self.df['Date'].dt.year
-        self.df['Month'] = self.df['Date'].dt.month
-        self.df['WeekOfYear'] = self.df['Date'].dt.isocalendar().week
-        self.df['is_month_end'] = self.df['Date'].dt.is_month_end
-        self.df['is_month_start'] = self.df['Date'].dt.is_month_start
-        self.df['is_quarter_end'] = self.df['Date'].dt.is_quarter_end
-        self.df['is_quarter_start'] = self.df['Date'].dt.is_quarter_start
-        self.df['is_year_end'] = self.df['Date'].dt.is_year_end
-        self.df['is_year_start'] = self.df['Date'].dt.is_year_start
-        logger.info("9 new columns added to the dataframe")
-        return df
-        
 
-    def create_holiday_distance_cols(self, df: pd.DataFrame) -> None:
-        self.df['DistanceToNextHoliay'] = pd.NA
-        self.df['DistanceFromPrevHoliay'] = pd.NA
+        self.create_holiday_distance_cols()
+        self.df.loc[:, ['Year']] = self.df['Date'].dt.year
+        self.df.loc[:, ['Month']] = self.df['Date'].dt.month
+        self.df.loc[:, ['WeekOfYear']] = self.df['Date'].dt.isocalendar().week
+        self.df.loc[:, ['is_month_end']] = self.df['Date'].dt.is_month_end
+        self.df.loc[:, ['is_month_start']] = self.df['Date'].dt.is_month_start
+        self.df.loc[:, ['is_quarter_end']] = self.df['Date'].dt.is_quarter_end
+        self.df.loc[:, ['is_quarter_start']] = self.df['Date'].dt.is_quarter_start
+        self.df.loc[:, ['is_year_end']] = self.df['Date'].dt.is_year_end
+        self.df.loc[:, ['is_year_start']] = self.df['Date'].dt.is_year_start
+        logger.info("9 new columns added to the dataframe")
+
+    def create_holiday_distance_cols(self) -> None:
+        self.df.loc[:, ['DistanceToNextHoliday']] = pd.NA
+        self.df.loc[:, ['DistanceFromPrevHoliday']] = pd.NA
         unique_dates = self.df.Date.unique()
         for date in unique_dates:
             after_holiday, to_next_holiday = self._get_holiday_distances(date)
             indecies = self.df[self.df['Date'] == date].index
-            self.df.loc[indecies, 'DistanceToNextHoliay'] = to_next_holiday
-            self.df.loc[indecies, 'DistanceFromPrevHoliay'] = after_holiday
-        self.df['DistanceToNextHoliay'] = self.df['DistanceToNextHoliay'].astype(
+            self.df.loc[indecies, 'DistanceToNextHoliday'] = to_next_holiday
+            self.df.loc[indecies, 'DistanceFromPrevHoliday'] = after_holiday
+        self.df.loc[:, ['DistanceToNextHoliday']] = self.df['DistanceToNextHoliday'].astype(
             int)
-        self.df['DistanceFromPrevHoliay'] = self.df['DistanceFromPrevHoliay'].astype(
+        self.df.loc[:, ['DistanceFromPrevHoliday']] = self.df['DistanceFromPrevHoliday'].astype(
             int)
 
-    def _get_holidays(self):
+    def _set_holidays(self) -> None:
         """Filters the holiday dates from a given dateframe"""
         self.holidays = self.df.query(
             "StateHoliday in ['a', 'b', 'c']")['Date'].dt.date.unique()
