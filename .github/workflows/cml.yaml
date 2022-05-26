@@ -3,21 +3,24 @@ on: [push]
 jobs:
   run:
     runs-on: ubuntu-latest
-    env:
-      REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      DATA_AUTH: ${{secrets.GDRIVE_AUTH}}
+    
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - uses: iterative/setup-cml@v1
       - name: install dependencies
         run: |
+          env:
+            REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
       - name: fetch DVC data
         run: |
+          env: 
+            DATA_AUTH: ${{secrets.GDRIVE_AUTH}}
           # Fetch the data
+          dvc remote modify filterout --local gdrive_user_credentials_file .dvc/tmp/gdrive-user-credentials.json
           dvc pull
       - name: Generate PR Report
         run: |

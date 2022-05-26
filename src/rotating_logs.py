@@ -27,9 +27,10 @@ def get_rotating_log(filename: str, logger_name: str) -> logging.Logger:
 
     # add a rotating handler
     if is_root_dir():
-        path = os.path.join('logs/', filename)
+        path = os.path.join(os.getcwd(), 'logs/', filename)
+        print(path)
     else:
-        path = os.path.join('../logs/', filename)
+        path = os.path.join(os.getcwd(), '../logs/', filename)
     rot_handler = RotatingFileHandler(path,
                                       maxBytes=1000000,
                                       backupCount=1)
