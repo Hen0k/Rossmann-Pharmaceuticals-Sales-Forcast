@@ -7,16 +7,21 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - uses: iterative/setup-cml@v1
-      - name: Metrics
-
+      - name: Generate PR Report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |     
-          echo "# Hi 10Acadamy Team" > report.md
-          
-          echo "This is just to show that CML is working. I will add one of the EDA plots below." >> report.md
-          
-          cml publish ./images/piechart.png --md >> report.md
-          
-          cml send-comment report.md
+          DATA_AUTH: ${{secrets.GDRIVE_AUTH}}
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
+          # Fetch the data
+          dvc pull
+
+          echo "# Files in the data directory" > report.md
+
+          ls data > report.md
+
+          echo "---" > report.md
+
+          cml send-comment report.md
