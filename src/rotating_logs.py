@@ -7,19 +7,16 @@ from fsutil import split_path
 
 
 # Helper methods
-# def get_root_dir() -> None:
-#     """This helps us get a the path to the root of the repo"""
-#     cwd = os.getcwd()
-#     folders = split_path(cwd)
-#     folder = folders[-1]
-#     repo_name = 'Rossmann-Pharmaceuticals-Sales-Forcast'
-#     if folder == repo_name:
-#         return '/'.join(folders)
-#     else:
-#         for idx, folder in enumerate(folders[::-1]):
-#             idx = -1*idx
-#             if folder == repo_name:
-#                 return '/'.join(folders[:idx])
+def is_root_dir() -> bool:
+    """This helps us get a the path to the root of the repo"""
+    cwd = os.getcwd()
+    folders = split_path(cwd)
+    folder = folders[-1]
+    repo_name = 'Rossmann-Pharmaceuticals-Sales-Forcast'
+    if folder == repo_name:
+        return True
+    else:
+        return False
 
 
 def get_rotating_log(filename: str, logger_name: str) -> logging.Logger:
@@ -28,14 +25,13 @@ def get_rotating_log(filename: str, logger_name: str) -> logging.Logger:
     logger = logging.getLogger(logger_name)
     logger.setLevel(logging.INFO)
 
-    # repo_root = get_root_dir()
-    # print(repo_root)
-    # print(os.path.join(repo_root, 'logs'))
-    # print(os.path.join(repo_root, 'logs', filename))
-    # log_file_path = os.path.join(repo_root, 'logs', filename)
-
     # add a rotating handler
-    rot_handler = RotatingFileHandler(os.path.join('../logs/', filename),
+    if is_root_dir():
+        path = os.path.join(os.getcwd(), 'logs/', filename)
+        print(path)
+    else:
+        path = os.path.join(os.getcwd(), '../logs/', filename)
+    rot_handler = RotatingFileHandler(path,
                                       maxBytes=1000000,
                                       backupCount=1)
     console_handler = logging.StreamHandler()

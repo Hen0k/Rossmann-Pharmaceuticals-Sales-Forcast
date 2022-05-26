@@ -1,0 +1,23 @@
+name: model-metrics
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: iterative/setup-cml@v1
+      - name: Metrics
+
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GDRIVE_TOKEN: ${{ secrets.GDRIVE_AUTH }}
+        run: |     
+          echo "# Hi 10Acadamy Team" > report.md
+          
+          echo "This is just to show that CML is working. I will add one of the EDA plots below." >> report.md
+          
+          cml publish ./images/piechart.png --md >> report.md
+          
+          cml send-comment report.md
+
