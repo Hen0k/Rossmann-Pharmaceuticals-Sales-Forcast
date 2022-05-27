@@ -1,0 +1,8 @@
+2022-05-24 18:27:23,929 - CleanDataFrameLogger - INFO - Replacing missing values in column: Promo2SinceWeek with method: zero
+2022-05-24 18:27:23,935 - CleanDataFrameLogger - INFO - Replacing missing values in column: Promo2SinceYear with method: zero
+2022-05-24 18:27:23,942 - CleanDataFrameLogger - INFO - Replacing missing values in column: PromoInterval with method: None
+2022-05-24 18:27:25,961 - CleanDataFrameLogger - INFO - Replacing missing values in column: CompetitionDistance with method: median
+2022-05-25 09:12:20,326 - CleanDataFrameLogger - INFO - Replacing missing values in column: Promo2SinceWeek with method: zero
+2022-05-25 09:12:20,337 - CleanDataFrameLogger - INFO - Replacing missing values in column: Promo2SinceYear with method: zero
+2022-05-25 09:12:20,351 - CleanDataFrameLogger - INFO - Replacing missing values in column: PromoInterval with method: None
+2022-05-25 09:12:23,566 - CleanDataFrameLogger - INFO - Replacing missing values in column: CompetitionDistance with method: median
