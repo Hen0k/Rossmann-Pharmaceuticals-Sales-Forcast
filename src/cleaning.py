@@ -17,7 +17,7 @@ class CleanDataFrame:
     @staticmethod
     def get_categorical_columns(df: pd.DataFrame) -> list:
         categorical_columns = df.select_dtypes(
-            include=['object']).columns.tolist()
+            include=['object', 'bool']).columns.tolist()
         return categorical_columns
 
 
