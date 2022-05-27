@@ -1,6 +1,6 @@
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import Normalizer, OneHotEncoder
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 
@@ -19,7 +19,7 @@ import io
 import mlflow
 import time
 
-from Scripts.cleaning import CleanDataFrame
+from src.cleaning import CleanDataFrame
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -43,29 +43,16 @@ class TrainingPipeline(Pipeline):
         self.__pipeline = super().fit(X_train, y_train)
         return self.__pipeline
 
-    def get_metrics(self, y_true, y_pred, y_pred_prob):
-        acc = accuracy_score(y_true, y_pred)
-        prec = precision_score(y_true, y_pred)
-        recall = recall_score(y_true, y_pred)
-        # entropy = None
-        # if isinstance(y_pred_prob, None):
-        entropy = log_loss(y_true, y_pred_prob)
-        
-        cm = confusion_matrix(y_true, y_pred)
-        true_pos = cm[0][0]
-        true_neg = cm[1][1]
-        false_pos = cm[0][1]
-        false_neg = cm[1][0]
+    def get_metrics(self, y_true, y_pred):
+        mse = mean_squared_error(y_true, y_pred)
+        r2 = r2_score(y_true, y_pred)
+        mae = mean_absolute_error(y_true, y_pred)
 
         return {
-            'accuracy': round(acc, 2),
-            'precision': round(prec, 2),
-            'recall': round(recall, 2),
-            'entropy': round(entropy, 2),
-            'true_pos': true_pos,
-            'true_neg': true_neg,
-            'false_pos': false_pos,
-            'false_neg': false_neg,
+            'mse': round(mse, 2),
+            'r2': round(r2, 2),
+            'mae': round(mae, 2),
+
         }
 
     def get_feature_importance(self, model, x):
@@ -86,21 +73,19 @@ class TrainingPipeline(Pipeline):
     def log_model(self, model_key, X_test, y_test, experiment_name, run_name, run_params=None):
         model = self.__pipeline.get_params()[model_key]
         y_pred = self.__pipeline.predict(X_test)
-        # try:
-        y_pred_prob = self.__pipeline.predict_proba(X_test)
-        # except AttributeError:
-        # y_pred_prob = None
-        run_metrics = self.get_metrics(y_test, y_pred, y_pred_prob)
+
+        run_metrics = self.get_metrics(y_test, y_pred)
         feature_importance = self.get_feature_importance(
             model, X_test)
         feature_importance_plot = self.plot_feature_importance(
             feature_importance)
         pred_plot = self.plot_preds(y_test, y_pred, experiment_name)
-        cm_plot = self.plot_confusion_matrix(y_test, y_pred)
+        # cm_plot = self.plot_confusion_matrix(y_test, y_pred)
         print(run_metrics)
-        print(feature_importance)
+        # print(feature_importance)
 
         mlflow.set_experiment(experiment_name)
+        # Commented out because of this: https://lifesaver.codes/answer/runid-not-found-when-executing-mlflow-run-with-remote-tracking-server-608
         mlflow.set_tracking_uri('http://localhost:5000')
         with mlflow.start_run(run_name=run_name):
             if run_params:
@@ -113,15 +98,17 @@ class TrainingPipeline(Pipeline):
             mlflow.log_param("columns", X_test.columns.to_list())
             print("logging figures")
             mlflow.log_figure(pred_plot, "predictions_plot.png")
-            mlflow.log_figure(cm_plot, "confusion_matrix.png")
-            mlflow.log_figure(feature_importance_plot, "feature_importance.png")
+            # mlflow.log_figure(cm_plot, "confusion_matrix.png")
+            mlflow.log_figure(feature_importance_plot,
+                              "feature_importance.png")
             print("figures saved with mlflow")
             pred_plot.savefig("../images/predictions_plot.png")
-            cm_plot.savefig("../images/confusion_matrix.png")
+            # cm_plot.savefig("../images/confusion_matrix.png")
             feature_importance_plot.savefig("../images/feature_importance.png")
             print("figures saved")
-            mlflow.log_artifact("../images/feature_importance.png", "metrics_plots")
-            print("Saving artifacts")
+            mlflow.log_artifact(
+                "../images/feature_importance.png", "metrics_plots")
+            # print("Saving artifacts")
             mlflow.log_dict(feature_importance, "feature_importance.json")
             print("saving dict")
         model_name = self.make_model_name(experiment_name, run_name)
@@ -132,31 +119,13 @@ class TrainingPipeline(Pipeline):
         return run_metrics
 
     def plot_preds(self, y_test, y_preds, model_name):
-        N = len(y_test)
-        figure = plt.figure(figsize=(8, 5))
-        original = plt.scatter(np.arange(1, N+1), y_test, c='blue')
-        prediction = plt.scatter(np.arange(1, N+1), y_preds, c='red')
-        plt.xticks(np.arange(1, N+1))
-        plt.xlabel('# Oberservation', fontsize=30)
-        plt.ylabel('REsponse', fontsize=25)
-        title = 'True labels vs. Predicted Labels ({})'.format(model_name)
-        plt.title(title, fontsize=25)
-        plt.legend((original, prediction),
-                   ('Original', 'Prediction'), fontsize=20)
-        plt.show()
-        return figure
+        fig = plt.figure(figsize=(40, 10))
+        sns.lineplot(x=range(len(y_test)), y=y_test)
+        sns.lineplot(x=range(len(y_preds)), y=y_preds)
+        plt.title(f"{model_name} predictions vs true values", fontsize=30)
+        plt.legend(['Predicted', 'True Value'])
 
-    def plot_confusion_matrix(self, actual, y_preds):
-        # plot_confusion_matrix(model, actual, y_preds)
-        # plt.show()
-        figure = plt.figure(figsize=(8, 5))
-        conf_matrix = confusion_matrix(actual, y_preds)
-        sns.heatmap(conf_matrix / np.sum(conf_matrix), annot=True, fmt='.2%')
-        plt.title('Confusion matrix', fontsize=25, fontweight='bold')
-        plt.ylabel('True Label', fontsize=20)
-        plt.xlabel('Predicted Label', fontsize=20)
-        plt.show()
-        return figure
+        return fig
 
     def plot_feature_importance(self, feature_importance):
         importance = pd.DataFrame({
@@ -171,16 +140,15 @@ class TrainingPipeline(Pipeline):
         ax.set_ylabel("Importance", fontsize=20)
         ax.set_xticklabels(ax.get_xticklabels(), rotation=45)
 
-        
         # figure = ax.get_figure()
         return fig
 
 
-def label_encoder(x):
+def label_encoder(x: pd.DataFrame) -> pd.DataFrame:
     lb = LabelEncoder()
     cat_cols = CleanDataFrame.get_categorical_columns(x)
     for col in cat_cols:
-        x[col] = lb.fit_transform(x[col])
+        x[col] = lb.fit_transform(x[col].astype(str))
 
     return x
 
@@ -190,11 +158,12 @@ def get_pipeline(model, x):
     num_cols = CleanDataFrame.get_numerical_columns(
         x)   # Remove the target column
 
-    # categorical_transformer = Pipeline(steps=[
-    #     ('onehot', OneHotEncoder(handle_unknown='ignore'))
-    # ])
+    categorical_transformer = Pipeline(steps=[
+        ('onehot', OneHotEncoder(handle_unknown='ignore'))
+    ])
     numerical_transformer = Pipeline(steps=[
-        ('scale', StandardScaler())
+        ('scale', StandardScaler()),
+        # ('norm', Normalizer()),
     ])
 
     preprocessor = ColumnTransformer(
@@ -220,7 +189,7 @@ def dvc_get_data(path, version='72d1bf77e90769aaef56e18685215ddc98af3343'):
     return df
 
 
-def run_train_pipeline(model, x, y, experiment_name, run_name):
+def run_train_pipeline(model, x, experiment_name, run_name):
     '''
     function which executes the training pipeline
     Args:
@@ -230,13 +199,22 @@ def run_train_pipeline(model, x, y, experiment_name, run_name):
         experiment_name : MLflow experiment name
         run_name : Set run name inside each experiment
     '''
+    x = x.sort_values(by="Date", ascending=False)
+    x.drop(columns=['Date'], inplace=True)
     x = label_encoder(x)
-    train_pipeline = get_pipeline(model, x)
+    train_pipeline = get_pipeline(model, x.drop(columns=['Sales']))
 
-    X_train, X_test, y_train, y_test = train_test_split(x, y,
-                                                        test_size=0.3,
-                                                        random_state=123)
+    train, test = x.iloc[:int(len(x)*.8), :], x.iloc[int(len(x)*.8):, :]
+    # print(len(train), len(test))
+    X_train = train.drop(columns=['Sales'])
+    X_test = test.drop(columns=['Sales'])
+    y_train = train['Sales'].values
+    y_test = test['Sales'].values
+
     run_params = model.get_params()
 
     train_pipeline.fit(X_train, y_train)
-    return train_pipeline.log_model('model', X_test, y_test, experiment_name, run_name, run_params=run_params)
+
+    train_pipeline.log_model('model', X_test, y_test,
+                             experiment_name, run_name, run_params=run_params)
+    return train_pipeline
