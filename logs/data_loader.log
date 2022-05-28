@@ -883,3 +883,4 @@ Traceback (most recent call last):
 dvc.exceptions.FileMissingError: Can't find 'data/raw/store.csv' neither locally nor on remote
 2022-05-28 05:01:04,059 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/raw/store.csv | version: raw_data | from: ../
 2022-05-28 05:01:39,795 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/raw/store.csv | version: raw_data | from: ../
+2022-05-28 06:33:52,016 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
