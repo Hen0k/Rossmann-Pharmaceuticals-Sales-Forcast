@@ -797,3 +797,89 @@ dvc.scm.SCMError: ../ is not a git repository
 2022-05-27 10:46:11,543 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
 2022-05-27 10:49:38,908 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
 2022-05-27 10:51:46,467 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 00:17:20,870 - DataLoaderLogger - ERROR - DVC data getter raised an exception
+Traceback (most recent call last):
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/dvc.py", line 68, in _get_fs_path
+    remote_odb = self.repo.cloud.get_remote_odb(remote)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/data_cloud.py", line 55, in get_remote_odb
+    raise NoRemoteError(error_msg)
+dvc.config.NoRemoteError: config file error: no remote specified. Create a default remote with
+    dvc remote add -d <remote name> <remote url>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/repo/__init__.py", line 498, in open_by_relpath
+    with fs.open(
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/base.py", line 186, in open
+    return self.fs.open(path, mode=mode, encoding=encoding, **kwargs)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/repo.py", line 309, in open
+    return dvc_fs.open(dvc_path, mode=mode, encoding=encoding, **kwargs)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/base.py", line 186, in open
+    return self.fs.open(path, mode=mode, encoding=encoding, **kwargs)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/dvc.py", line 77, in open
+    fs, fspath = self._get_fs_path(path, **kwargs)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/dvc.py", line 70, in _get_fs_path
+    raise FileNotFoundError from exc
+FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/notebooks/../src/fetch_data.py", line 25, in dvc_get_data
+    content = dvc.api.read(path=path,
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/api.py", line 88, in read
+    with open(
+  File "/usr/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/api.py", line 76, in _open
+    with _repo.open_by_relpath(
+  File "/usr/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/repo/__init__.py", line 503, in open_by_relpath
+    raise FileMissingError(path) from exc
+dvc.exceptions.FileMissingError: Can't find 'data/raw/store.csv' neither locally nor on remote
+2022-05-28 04:59:17,626 - DataLoaderLogger - ERROR - DVC data getter raised an exception
+Traceback (most recent call last):
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/dvc.py", line 68, in _get_fs_path
+    remote_odb = self.repo.cloud.get_remote_odb(remote)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/data_cloud.py", line 55, in get_remote_odb
+    raise NoRemoteError(error_msg)
+dvc.config.NoRemoteError: config file error: no remote specified. Create a default remote with
+    dvc remote add -d <remote name> <remote url>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/repo/__init__.py", line 498, in open_by_relpath
+    with fs.open(
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/base.py", line 186, in open
+    return self.fs.open(path, mode=mode, encoding=encoding, **kwargs)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/repo.py", line 309, in open
+    return dvc_fs.open(dvc_path, mode=mode, encoding=encoding, **kwargs)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/base.py", line 186, in open
+    return self.fs.open(path, mode=mode, encoding=encoding, **kwargs)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/dvc.py", line 77, in open
+    fs, fspath = self._get_fs_path(path, **kwargs)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/fs/dvc.py", line 70, in _get_fs_path
+    raise FileNotFoundError from exc
+FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/notebooks/../src/fetch_data.py", line 25, in dvc_get_data
+    content = dvc.api.read(path=path,
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/api.py", line 88, in read
+    with open(
+  File "/usr/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/api.py", line 76, in _open
+    with _repo.open_by_relpath(
+  File "/usr/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/home/hat/dev-env/10Acadamy/week_3/Rossmann-Pharmaceuticals-Sales-Forcast/venv/lib/python3.10/site-packages/dvc/repo/__init__.py", line 503, in open_by_relpath
+    raise FileMissingError(path) from exc
+dvc.exceptions.FileMissingError: Can't find 'data/raw/store.csv' neither locally nor on remote
+2022-05-28 05:01:04,059 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/raw/store.csv | version: raw_data | from: ../
+2022-05-28 05:01:39,795 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/raw/store.csv | version: raw_data | from: ../
