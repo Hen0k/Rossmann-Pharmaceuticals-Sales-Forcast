@@ -884,3 +884,15 @@ dvc.exceptions.FileMissingError: Can't find 'data/raw/store.csv' neither locally
 2022-05-28 05:01:04,059 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/raw/store.csv | version: raw_data | from: ../
 2022-05-28 05:01:39,795 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/raw/store.csv | version: raw_data | from: ../
 2022-05-28 06:33:52,016 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 09:03:40,981 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 09:11:25,681 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 09:30:25,157 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 09:32:45,280 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 09:37:54,727 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 09:51:41,175 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 09:56:11,042 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 10:01:18,146 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 10:13:00,810 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 10:24:10,263 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 10:26:19,607 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../
+2022-05-28 10:37:14,520 - DataLoaderLogger - INFO - DVC: CSV file read with path: data/merged/train.csv | version: merged_v3 | from: ../

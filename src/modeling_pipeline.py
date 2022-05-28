@@ -85,9 +85,11 @@ class TrainingPipeline(Pipeline):
         print(run_metrics)
         # print(feature_importance)
 
-        mlflow.set_experiment(experiment_name, artifact_location='../mlflow_outputs/mlruns')
-        # Commented out because of this: https://lifesaver.codes/answer/runid-not-found-when-executing-mlflow-run-with-remote-tracking-server-608
         mlflow.set_tracking_uri('http://localhost:5000')
+        # mlflow.set_tracking_uri('../mlflow_outputs/mlruns')
+        mlflow.set_experiment(experiment_name)
+        # Commented out because of this: https://lifesaver.codes/answer/runid-not-found-when-executing-mlflow-run-with-remote-tracking-server-608
+        
         with mlflow.start_run(run_name=run_name):
             if run_params:
                 for name in run_params:
@@ -108,7 +110,7 @@ class TrainingPipeline(Pipeline):
             feature_importance_plot.savefig("../images/feature_importance.png")
             # print("figures saved")
             mlflow.log_artifact(
-                "../images/feature_importance.png", "../mlflow_logs/metrics_plots")
+                "../images/feature_importance.png", "metrics_plots")
             # print("Saving artifacts")
             mlflow.log_dict(feature_importance, "feature_importance.json")
             print("saving dict")
