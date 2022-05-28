@@ -4,7 +4,7 @@ from src.rotating_logs import get_rotating_log
 
 
 logger = get_rotating_log(
-    filename='preprocessing.log', logger_name='PreProcessorLogger')
+    filename='preprocessing.log', logger_name='FeatureEngineeringLogger')
 
 
 class FeatureEngineering:
