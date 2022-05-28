@@ -1,6 +1,7 @@
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import Normalizer, OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import FunctionTransformer
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 
@@ -144,13 +145,12 @@ class TrainingPipeline(Pipeline):
         return fig
 
 
-def label_encoder(x: pd.DataFrame) -> pd.DataFrame:
+def label_encoder(df: pd.DataFrame, cat_columns: list[str]) -> pd.DataFrame:
     lb = LabelEncoder()
-    cat_cols = CleanDataFrame.get_categorical_columns(x)
-    for col in cat_cols:
-        x[col] = lb.fit_transform(x[col].astype(str))
+    for col in cat_columns:
+        df[col] = lb.fit_transform(df[col].astype(str))
 
-    return x
+    return df
 
 
 def get_pipeline(model, x):
@@ -189,19 +189,18 @@ def dvc_get_data(path, version='72d1bf77e90769aaef56e18685215ddc98af3343'):
     return df
 
 
-def run_train_pipeline(model, x, experiment_name, run_name):
+def run_train_pipeline(model, x: pd.DataFrame, experiment_name: str, run_name: str):
     '''
     function which executes the training pipeline
     Args:
         model : an sklearn model object
-        x : features dataframe
-        y : labels
+        x : a dataframe with features and a Sales column
         experiment_name : MLflow experiment name
         run_name : Set run name inside each experiment
     '''
     x = x.sort_values(by="Date", ascending=False)
     x.drop(columns=['Date'], inplace=True)
-    x = label_encoder(x)
+    # x = label_encoder(x)
     train_pipeline = get_pipeline(model, x.drop(columns=['Sales']))
 
     train, test = x.iloc[:int(len(x)*.8), :], x.iloc[int(len(x)*.8):, :]
