@@ -31,7 +31,7 @@ import seaborn as sns
 class TrainingPipeline(Pipeline):
     '''
     Class -> TrainingPipeline, ParentClass -> Sklearn-Pipeline
-    Extends from Scikit-Learn Pipeline class. Additional functionality to track 
+    Extends from Scikit-Learn Pipeline class. Has additional functionality to track 
     model metrics and log model artifacts with mlflow
     params:
     steps: list of tuple (similar to Scikit-Learn Pipeline class)
@@ -80,8 +80,8 @@ class TrainingPipeline(Pipeline):
             model, X_test)
         feature_importance_plot = self.plot_feature_importance(
             feature_importance)
-        pred_plot = self.plot_preds(y_test, y_pred, experiment_name)
-        # cm_plot = self.plot_confusion_matrix(y_test, y_pred)
+        # pred_plot = self.plot_preds(y_test, y_pred, experiment_name)
+        
         print(run_metrics)
         # print(feature_importance)
 
@@ -97,24 +97,24 @@ class TrainingPipeline(Pipeline):
                 mlflow.log_metric(name, run_metrics[name])
             print("Run metrics saved")
             mlflow.log_param("columns", X_test.columns.to_list())
-            print("logging figures")
-            mlflow.log_figure(pred_plot, "predictions_plot.png")
+            # print("logging figures")
+            # mlflow.log_figure(pred_plot, "predictions_plot.png")
             # mlflow.log_figure(cm_plot, "confusion_matrix.png")
             mlflow.log_figure(feature_importance_plot,
                               "feature_importance.png")
             print("figures saved with mlflow")
-            pred_plot.savefig("../images/predictions_plot.png")
-            # cm_plot.savefig("../images/confusion_matrix.png")
+            # pred_plot.savefig("../images/predictions_plot.png")
+            
             feature_importance_plot.savefig("../images/feature_importance.png")
-            print("figures saved")
-            mlflow.log_artifact(
-                "../images/feature_importance.png", "metrics_plots")
+            # print("figures saved")
+            # mlflow.log_artifact(
+                # "../images/feature_importance.png", "metrics_plots")
             # print("Saving artifacts")
             mlflow.log_dict(feature_importance, "feature_importance.json")
             print("saving dict")
-        model_name = self.make_model_name(experiment_name, run_name)
-        mlflow.sklearn.log_model(
-            sk_model=self.__pipeline, artifact_path='models', registered_model_name=model_name)
+        # model_name = self.make_model_name(experiment_name, run_name)
+        # mlflow.sklearn.log_model(
+        #     sk_model=self.__pipeline, artifact_path='models', registered_model_name=model_name)
         print('Run - %s is logged to Experiment - %s' %
               (run_name, experiment_name))
         return run_metrics
@@ -155,11 +155,11 @@ def label_encoder(df: pd.DataFrame, cat_columns: list[str]) -> pd.DataFrame:
 
 def get_pipeline(model, x):
     cat_cols = CleanDataFrame.get_categorical_columns(x)
-    num_cols = CleanDataFrame.get_numerical_columns(
-        x)   # Remove the target column
+    num_cols = CleanDataFrame.get_numerical_columns(x)
 
     categorical_transformer = Pipeline(steps=[
-        ('onehot', OneHotEncoder(handle_unknown='ignore'))
+        ("cat_encoder", FunctionTransformer(
+            label_encoder, kw_args={"cat_columns": cat_cols})),
     ])
     numerical_transformer = Pipeline(steps=[
         ('scale', StandardScaler()),
@@ -169,7 +169,7 @@ def get_pipeline(model, x):
     preprocessor = ColumnTransformer(
         transformers=[
             ('num', numerical_transformer, num_cols),
-            # ('cat', categorical_transformer, cat_cols)
+            ('cat', categorical_transformer, cat_cols)
         ])
     train_pipeline = TrainingPipeline(steps=[
         ('preprocessor', preprocessor),
@@ -198,7 +198,7 @@ def run_train_pipeline(model, x: pd.DataFrame, experiment_name: str, run_name: s
         experiment_name : MLflow experiment name
         run_name : Set run name inside each experiment
     '''
-    x = x.sort_values(by="Date", ascending=False)
+    x = x.sort_values(by='Date', ascending=False)
     x.drop(columns=['Date'], inplace=True)
     # x = label_encoder(x)
     train_pipeline = get_pipeline(model, x.drop(columns=['Sales']))
