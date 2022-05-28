@@ -85,7 +85,7 @@ class TrainingPipeline(Pipeline):
         print(run_metrics)
         # print(feature_importance)
 
-        mlflow.set_experiment(experiment_name)
+        mlflow.set_experiment(experiment_name, artifact_location='../mlflow_outputs/mlruns')
         # Commented out because of this: https://lifesaver.codes/answer/runid-not-found-when-executing-mlflow-run-with-remote-tracking-server-608
         mlflow.set_tracking_uri('http://localhost:5000')
         with mlflow.start_run(run_name=run_name):
@@ -100,15 +100,15 @@ class TrainingPipeline(Pipeline):
             # print("logging figures")
             # mlflow.log_figure(pred_plot, "predictions_plot.png")
             # mlflow.log_figure(cm_plot, "confusion_matrix.png")
-            mlflow.log_figure(feature_importance_plot,
-                              "feature_importance.png")
+            # mlflow.log_figure(feature_importance_plot,
+            #                   "feature_importance.png")
             print("figures saved with mlflow")
             # pred_plot.savefig("../images/predictions_plot.png")
             
             feature_importance_plot.savefig("../images/feature_importance.png")
             # print("figures saved")
-            # mlflow.log_artifact(
-                # "../images/feature_importance.png", "metrics_plots")
+            mlflow.log_artifact(
+                "../images/feature_importance.png", "../mlflow_logs/metrics_plots")
             # print("Saving artifacts")
             mlflow.log_dict(feature_importance, "feature_importance.json")
             print("saving dict")
@@ -177,16 +177,6 @@ def get_pipeline(model, x):
     ])
 
     return train_pipeline
-
-
-def dvc_get_data(path, version='72d1bf77e90769aaef56e18685215ddc98af3343'):
-    repo = "../"
-    content = dvc.api.read(path=path,
-                           repo=repo,
-                           rev=version)
-    df = pd.read_csv(io.StringIO(content), sep=",")
-
-    return df
 
 
 def run_train_pipeline(model, x: pd.DataFrame, experiment_name: str, run_name: str):
