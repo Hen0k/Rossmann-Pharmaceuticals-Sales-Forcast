@@ -7,17 +7,31 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - uses: iterative/setup-cml@v1
-      - name: Metrics
+      - name: Install Dependencies
+        run: |     
+            python -m pip install --upgrade pip
+            # pip install -r requirements.txt
+            pip install dvc dvc[gdrive]
+
+      - name: Metrics Report
 
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GDRIVE_TOKEN: ${{ secrets.GDRIVE_AUTH }}
-        run: |     
-          echo "# Hi 10Acadamy Team" > report.md
-          
-          echo "This is just to show that CML is working. I will add one of the EDA plots below." >> report.md
-          
-          cml publish ./images/piechart.png --md >> report.md
+          GDRIVE_TOKEN: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
+        run: |
+          mkdir -p .dvc/tmp
+          touch .dvc/tmp/gdrive-user-credentials.json
+          echo $GDRIVE_TOKEN > .dvc/tmp/gdrive-user-credentials.json
+          dvc pull -r dvc_remote 
+
+          cml publish ./images/predictions_plot.png --md >> report.md
+          echo "# Predictions" > report.md
+                    
+          cml publish ./images/predictions_plot.png --md >> report.md
+
+          echo "# Feature Importance" > report.md
+                    
+          cml publish ./images/feature_importance.png --md >> report.md
           
           cml send-comment report.md
 
