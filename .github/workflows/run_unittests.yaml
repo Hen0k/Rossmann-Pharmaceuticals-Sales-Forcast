@@ -1,11 +1,12 @@
 name: GitHub Actions Test
-on:
-  push:
-    branches:
-      - "main"
-  pull_request:
-    branches:
-      - "main"
+# on:
+#   push:
+#     branches:
+#       - "main"
+#   pull_request:
+#     branches:
+#       - "main"
+on: [push]
 
 jobs:
   test:
@@ -34,5 +35,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run tests
-        # run: python -m unittest tests/test*.py
-        echo "hello"
+        run: python -m unittest tests/test*.py
+        
