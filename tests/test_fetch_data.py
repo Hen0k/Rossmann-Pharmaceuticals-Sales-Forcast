@@ -26,8 +26,8 @@ class TestDataLoader(unittest.TestCase):
     
     def test_dvc_get_data(self):
         data_path = 'data/raw/test.csv'
-        version = 'raw_data'
-        repo = './'
+        version = '90f3a7cc29d56a07cb6cb6e5bb0944d17a438ff7'#, 'raw_data'
+        repo = '.'
         test_df = DataLoader.dvc_get_data(data_path, version, repo)
         self.assertTrue(test_df['Open'].isnull().any())
         logger.info(f"Finished testing csv from DVC reader")

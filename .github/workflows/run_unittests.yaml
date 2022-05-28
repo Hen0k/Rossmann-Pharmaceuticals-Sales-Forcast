@@ -7,6 +7,7 @@ on:
     branches:
       - "main"
 
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -33,6 +34,22 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+      - name: Fetch Dataset
+
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GDRIVE_TOKEN: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
+        run: |
+          mkdir -p .dvc/tmp
+          touch .dvc/tmp/gdrive-user-credentials.json
+          echo $GDRIVE_TOKEN > .dvc/tmp/gdrive-user-credentials.json
+          dvc pull -r dvc_remote 
       - name: Run tests
-        # run: python -m unittest tests/test*.py
-        echo "hello"
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
+        run: |
+          echo $BRANCH_NAME
+          git config pull.rebase true
+          git pull origin $BRANCH_NAME --tags --prune
+          python -m unittest tests/test*.py
+        

@@ -4,47 +4,49 @@ from src.rotating_logs import get_rotating_log
 
 
 logger = get_rotating_log(
-    filename='preprocessing.log', logger_name='PreProcessorLogger')
+    filename='preprocessing.log', logger_name='FeatureEngineeringLogger')
 
 
-class PreProcess:
+class FeatureEngineering:
     def __init__(self, df=None):
         self.df = df
         self.holidays = None
-        self.columns_to_keep = [
-            'Assortment',
-            'CompetitionDistance',
-            'CompetitionOpenSinceMonth',
-            'CompetitionOpenSinceYear',
-            'Date',
-            'DayOfWeek',
-            'Open',
-            'Promo',
-            'Promo2',
-            'Promo2SinceWeek',
-            'Promo2SinceYear',
-            'PromoInterval',
-            'SchoolHoliday',
-            'StateHoliday',
-            'Store',
-            'StoreType'
-        ]
+        # self.columns_to_keep = [
+        #     'Assortment',
+        #     'CompetitionDistance',
+        #     'CompetitionOpenSinceMonth',
+        #     'CompetitionOpenSinceYear',
+        #     'Date',
+        #     'DayOfWeek',
+        #     'Open',
+        #     'Promo',
+        #     'Promo2',
+        #     'Promo2SinceWeek',
+        #     'Promo2SinceYear',
+        #     'PromoInterval',
+        #     'SchoolHoliday',
+        #     'StateHoliday',
+        #     'Store',
+        #     'StoreType',
+        #     'Sales',
+        #     'Customers',
+        # ]
 
     def transform(self, df: pd.DataFrame = None):
         if not isinstance(df, NoneType):
             self.df = df.copy()
         assert 'Date' in self.df.columns
         self._set_holidays()
-        self.drop_columns()
+        # self.drop_columns()
         self.generate_columns()
         logger.info("Feature enginerring completed")
 
         return self.df
 
-    def drop_columns(self) -> None:
-        self.df = self.df[self.columns_to_keep]
-        logger.info(
-            f"Dropped {len(self.columns_to_keep)} columns since they are not in the test data")
+    # def drop_columns(self) -> None:
+    #     self.df = self.df[self.columns_to_keep]
+    #     logger.info(
+    #         f"Dropped {len(self.columns_to_keep)} columns since they are not in the test data")
 
     def generate_columns(self) -> None:
         """Adds date related categorical columns to the dataframe"""
