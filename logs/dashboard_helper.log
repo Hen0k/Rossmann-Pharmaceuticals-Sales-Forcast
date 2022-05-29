@@ -1,0 +1,371 @@
+2022-05-29 09:13:22,309 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 09:13:22,316 - DashboardHelper - ERROR - None
+2022-05-29 09:13:22,317 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 09:13:22,318 - DashboardHelper - ERROR - None
+2022-05-29 09:26:57,367 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 09:26:57,372 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 09:26:57,384 - DashboardHelper - ERROR - None
+2022-05-29 09:26:59,904 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 09:26:59,912 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 09:26:59,924 - DashboardHelper - ERROR - None
+2022-05-29 09:30:57,105 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 09:30:57,112 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 09:30:57,124 - DashboardHelper - ERROR - None
+2022-05-29 09:37:10,933 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 09:37:10,935 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 09:37:10,961 - DashboardHelper - ERROR - None
+2022-05-29 09:39:36,989 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 09:40:39,902 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 09:40:40,965 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:12:49,372 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:12:49,385 - DashboardHelper - ERROR - None
+2022-05-29 10:12:49,412 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 10:12:49,418 - DashboardHelper - ERROR - None
+2022-05-29 10:15:00,645 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:15:00,645 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:15:00,661 - DashboardHelper - ERROR - None
+2022-05-29 10:15:00,661 - DashboardHelper - ERROR - None
+2022-05-29 10:15:00,692 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 10:15:00,692 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 10:15:00,704 - DashboardHelper - ERROR - None
+2022-05-29 10:15:00,704 - DashboardHelper - ERROR - None
+2022-05-29 10:16:56,688 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:16:56,703 - DashboardHelper - ERROR - None
+2022-05-29 10:16:56,716 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 10:16:56,743 - DashboardHelper - ERROR - None
+2022-05-29 10:17:54,701 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:17:54,701 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:17:54,724 - DashboardHelper - ERROR - None
+2022-05-29 10:17:54,724 - DashboardHelper - ERROR - None
+2022-05-29 10:17:54,757 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 10:17:54,757 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 10:17:54,792 - DashboardHelper - ERROR - None
+2022-05-29 10:17:54,792 - DashboardHelper - ERROR - None
+2022-05-29 10:19:09,118 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:19:09,118 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:19:09,118 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:19:09,133 - DashboardHelper - ERROR - None
+2022-05-29 10:19:09,133 - DashboardHelper - ERROR - None
+2022-05-29 10:19:09,133 - DashboardHelper - ERROR - None
+2022-05-29 10:19:09,171 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 10:19:09,171 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 10:19:09,171 - DashboardHelper - ERROR - Unable to add training features to testing data
+2022-05-29 10:19:09,177 - DashboardHelper - ERROR - None
+2022-05-29 10:19:09,177 - DashboardHelper - ERROR - None
+2022-05-29 10:19:09,177 - DashboardHelper - ERROR - None
+2022-05-29 10:20:10,476 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:20:10,476 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:20:10,476 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:20:10,476 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:20:10,476 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:20:10,519 - DashboardHelper - ERROR - None
+2022-05-29 10:20:10,519 - DashboardHelper - ERROR - None
+2022-05-29 10:20:10,519 - DashboardHelper - ERROR - None
+2022-05-29 10:20:10,519 - DashboardHelper - ERROR - None
+2022-05-29 10:20:10,519 - DashboardHelper - ERROR - None
+2022-05-29 10:20:12,080 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:20:12,080 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:20:12,080 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:20:12,080 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:20:12,080 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:28,378 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:28,378 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:28,378 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:28,378 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:28,378 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:28,378 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:28,426 - DashboardHelper - ERROR - None
+2022-05-29 10:21:28,426 - DashboardHelper - ERROR - None
+2022-05-29 10:21:28,426 - DashboardHelper - ERROR - None
+2022-05-29 10:21:28,426 - DashboardHelper - ERROR - None
+2022-05-29 10:21:28,426 - DashboardHelper - ERROR - None
+2022-05-29 10:21:28,426 - DashboardHelper - ERROR - None
+2022-05-29 10:21:29,452 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:29,452 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:29,452 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:29,452 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:29,452 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:29,452 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:35,121 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:35,121 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:35,121 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:35,121 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:35,121 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:35,121 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:35,121 - DashboardHelper - ERROR - Unable to merge dataframe with store.csv
+2022-05-29 10:21:35,132 - DashboardHelper - ERROR - None
+2022-05-29 10:21:35,132 - DashboardHelper - ERROR - None
+2022-05-29 10:21:35,132 - DashboardHelper - ERROR - None
+2022-05-29 10:21:35,132 - DashboardHelper - ERROR - None
+2022-05-29 10:21:35,132 - DashboardHelper - ERROR - None
+2022-05-29 10:21:35,132 - DashboardHelper - ERROR - None
+2022-05-29 10:21:35,132 - DashboardHelper - ERROR - None
+2022-05-29 10:21:35,977 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:35,977 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:35,977 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:35,977 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:35,977 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:35,977 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:21:35,977 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:03,851 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:03,851 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:03,851 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:03,851 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:03,851 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:03,851 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:03,851 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:03,851 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:04,531 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:04,531 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:04,531 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:04,531 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:04,531 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:04,531 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:04,531 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:04,531 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:30,593 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:30,593 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:30,593 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:30,593 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:30,593 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:30,593 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:30,593 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:30,593 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:30,593 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:31,687 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:31,687 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:31,687 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:31,687 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:31,687 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:31,687 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:31,687 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:31,687 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:31,687 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:41,964 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:41,964 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:41,964 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:41,964 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:41,964 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:41,964 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:41,964 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:41,964 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:41,964 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:41,964 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:22:43,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:43,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:43,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:43,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:43,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:43,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:43,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:43,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:43,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:22:43,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:17,276 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:17,276 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:17,276 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:17,276 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:17,276 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:17,276 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:17,276 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:17,276 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:17,276 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:17,276 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:17,276 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:17,813 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:17,813 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:17,813 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:17,813 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:17,813 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:17,813 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:17,813 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:17,813 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:17,813 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:17,813 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:17,813 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,242 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:33,879 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:49,918 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:24:50,882 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:16,368 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:17,027 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:45,385 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:25:46,548 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:04,637 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:26:05,721 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:14,400 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:30:15,516 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:33:09,193 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:33:09,687 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:33:59,419 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:33:59,419 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:34:00,047 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:34:00,047 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:34:25,667 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:34:25,667 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:34:25,667 - DashboardHelper - INFO - Dataframe now merged
+2022-05-29 10:34:26,412 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:34:26,412 - DashboardHelper - INFO - Date related training features added to test data
+2022-05-29 10:34:26,412 - DashboardHelper - INFO - Date related training features added to test data
