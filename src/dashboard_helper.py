@@ -73,11 +73,10 @@ def plot_predictions(date, sales):
 
 
 def load_model(model_path: str = None):
-    if not model_path:
-        model_path = 'notebooks/artifacts/2/d7bf6297b579440bb3a76ee47ee157c5/artifacts/models/model.pkl'
+    model_file = dataloader.dvc_get_data("models/model.pkl", 'rf-reg-v1', '.')
 
-    with open(model_path, 'rb') as f:
-        model = pickle.load(f)
+    # with open(model_path, 'rb') as f:
+    model = pickle.load(model_file)
 
     return model
 
