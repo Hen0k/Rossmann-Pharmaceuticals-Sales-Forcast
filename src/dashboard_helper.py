@@ -9,6 +9,8 @@ from src.processing import FeatureEngineering
 from src.cleaning import CleanDataFrame
 from src.exploration import Analysis
 from src.rotating_logs import get_rotating_log
+from io import BytesIO
+import dvc.api as dvc
 
 
 logger = get_rotating_log("dashboard_helper.log", 'DashboardHelper')
@@ -73,10 +75,13 @@ def plot_predictions(date, sales):
 
 
 def load_model(model_path: str = None):
-    model_file = dataloader.dvc_get_data("models/model.pkl", 'rf-reg-v1', '.')
-
+    # model_file = dataloader.dvc_get_data("models/model.pkl", 'rf-reg-v1', '.')
+    with dvc.open("models/model.pkl", ".", "rf-reg-v1", mode='rb') as model_file:
+    # print(type(model_file))
+    # model_file = BytesIO(model_file)
     # with open(model_path, 'rb') as f:
-    model = pickle.load(model_file)
+        model = pickle.load(model_file)
+        # model = pickle.load(BytesIO(model_file))
 
     return model
 
