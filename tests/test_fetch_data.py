@@ -10,7 +10,7 @@ from src.fetch_data import DataLoader
 from src.rotating_logs import get_rotating_log
 
 
-logger = get_rotating_log(filename='unittest_data_loader.log', logger_name='TestDataLoaderLogger')
+#logger = get_rotating_log(filename='unittest_data_loader.log', logger_name='TestDataLoaderLogger')
 
 
 class TestDataLoader(unittest.TestCase):
@@ -22,7 +22,7 @@ class TestDataLoader(unittest.TestCase):
     def test_read_csv(self):
         ad_df = DataLoader.read_csv('tests/test_data.csv')
         self.assertEqual(len(ad_df), 6)
-        logger.info(f"Finished testing csv from disk reader")
+        #logger.info(f"Finished testing csv from disk reader")
     
     def test_dvc_get_data(self):
         data_path = 'data/raw/test.csv'
@@ -30,7 +30,7 @@ class TestDataLoader(unittest.TestCase):
         repo = '.'
         test_df = DataLoader.dvc_get_data(data_path, version, repo)
         self.assertTrue(test_df['Open'].isnull().any())
-        logger.info(f"Finished testing csv from DVC reader")
+        #logger.info(f"Finished testing csv from DVC reader")
 
 
 if __name__ == '__main__':

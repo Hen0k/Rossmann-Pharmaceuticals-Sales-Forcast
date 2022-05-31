@@ -13,7 +13,7 @@ from io import BytesIO, StringIO
 import dvc.api as dvc
 
 
-logger = get_rotating_log("dashboard_helper.log", 'DashboardHelper')
+#logger = get_rotating_log("dashboard_helper.log", 'DashboardHelper')
 
 # dataloader = DataLoader()
 feature_engineering = FeatureEngineering()
@@ -31,10 +31,11 @@ def merge_with_store(df: pd.DataFrame) -> pd.DataFrame:
                                rev='stores_missing_filled_v2')
         store_df = pd.read_csv(StringIO(content))
         df = df.merge(store_df, on='Store', how='left')
-        logger.info("Dataframe now merged")
+        #logger.info("Dataframe now merged")
     except:
-        logger.error("Unable to merge dataframe with store.csv")
-        logger.error(traceback.print_exc())
+        pass
+        #logger.error("Unable to merge dataframe with store.csv")
+        #logger.error(traceback.print_exc())
 
     return df
 
@@ -43,10 +44,11 @@ def add_train_columns(df: pd.DataFrame) -> pd.DataFrame:
     try:
 
         df = feature_engineering.transform(df)
-        logger.info("Date related training features added to test data")
+        #logger.info("Date related training features added to test data")
     except:
-        logger.error("Unable to add training features to testing data")
-        logger.error(traceback.print_exc())
+        pass
+        #logger.error("Unable to add training features to testing data")
+        #logger.error(traceback.print_exc())
 
     return df
 
@@ -80,7 +82,7 @@ def plot_predictions(date, sales):
 
 def load_model(model_path: str = None):
     # model_file = dataloader.dvc_get_data("models/model.pkl", 'rf-reg-v1', '.')
-    with dvc.open("models/model.pkl", ".", "rf-reg-v1", mode='rb') as model_file:
+    with dvc.open("models/model.pkl", "github.com/Hen0k/Rossmann-Pharmaceuticals-Sales-Forcast", "rf-reg-v1", mode='rb') as model_file:
         # print(type(model_file))
         # model_file = BytesIO(model_file)
         # with open(model_path, 'rb') as f:

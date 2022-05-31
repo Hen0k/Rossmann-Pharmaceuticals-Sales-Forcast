@@ -3,8 +3,7 @@ import pandas as pd
 from src.rotating_logs import get_rotating_log
 
 
-logger = get_rotating_log(
-    filename='preprocessing.log', logger_name='FeatureEngineeringLogger')
+#logger = get_rotating_log(filename='preprocessing.log', logger_name='FeatureEngineeringLogger')
 
 
 class FeatureEngineering:
@@ -33,19 +32,19 @@ class FeatureEngineering:
         # ]
 
     def transform(self, df: pd.DataFrame = None):
-        if not isinstance(df, NoneType):
+        if isinstance(df, pd.DataFrame):
             self.df = df.copy()
         assert 'Date' in self.df.columns
         self._set_holidays()
         # self.drop_columns()
         self.generate_columns()
-        logger.info("Feature enginerring completed")
+        #logger.info("Feature enginerring completed")
 
         return self.df
 
     # def drop_columns(self) -> None:
     #     self.df = self.df[self.columns_to_keep]
-    #     logger.info(
+    #     #logger.info(
     #         f"Dropped {len(self.columns_to_keep)} columns since they are not in the test data")
 
     def generate_columns(self) -> None:
@@ -61,7 +60,7 @@ class FeatureEngineering:
         self.df.loc[:, ['is_quarter_start']] = self.df['Date'].dt.is_quarter_start
         self.df.loc[:, ['is_year_end']] = self.df['Date'].dt.is_year_end
         self.df.loc[:, ['is_year_start']] = self.df['Date'].dt.is_year_start
-        logger.info("9 new columns added to the dataframe")
+        #logger.info("9 new columns added to the dataframe")
 
     def create_holiday_distance_cols(self) -> None:
         self.df.loc[:, ['DistanceToNextHoliday']] = pd.NA

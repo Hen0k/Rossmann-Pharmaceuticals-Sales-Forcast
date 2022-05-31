@@ -5,7 +5,7 @@ import pandas as pd
 from src.rotating_logs import get_rotating_log
 
 
-logger = get_rotating_log(filename='data_loader.log', logger_name='DataLoaderLogger')
+#logger = get_rotating_log(filename='data_loader.log', logger_name='DataLoaderLogger')
 
 
 class DataLoader:
@@ -26,17 +26,19 @@ class DataLoader:
                                    repo=repo,
                                    rev=version)
             df = pd.read_csv(io.StringIO(content), sep=",")
-            logger.info(
-                f"DVC: CSV file read with path: {path} | version: {version} | from: {repo}")
+            #logger.info(
+                # f"DVC: CSV file read with path: {path} | version: {version} | from: {repo}")
             return df
         except:
-            logger.exception("DVC data getter raised an exception")
+            pass
+            #logger.exception("DVC data getter raised an exception")
 
     @staticmethod
     def read_csv(path: str) -> pd.DataFrame:
         try:
             df = pd.read_csv(path)
-            logger.info(f"Pandas: CSV read from: {path}")
+            #logger.info(f"Pandas: CSV read from: {path}")
             return df
         except:
-            logger.exception(f"Pandas failed to read the csv at: {path}")
+            pass
+            #logger.exception(f"Pandas failed to read the csv at: {path}")

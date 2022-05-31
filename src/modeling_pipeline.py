@@ -80,7 +80,7 @@ class TrainingPipeline(Pipeline):
             model, X_test)
         feature_importance_plot = self.plot_feature_importance(
             feature_importance)
-        # pred_plot = self.plot_preds(y_test, y_pred, experiment_name)
+        pred_plot = self.plot_preds(y_test, y_pred, experiment_name)
         
         print(run_metrics)
         # print(feature_importance)
@@ -100,12 +100,12 @@ class TrainingPipeline(Pipeline):
             print("Run metrics saved")
             mlflow.log_param("columns", X_test.columns.to_list())
             # print("logging figures")
-            # mlflow.log_figure(pred_plot, "predictions_plot.png")
+            mlflow.log_figure(pred_plot, "predictions_plot.png")
             # mlflow.log_figure(cm_plot, "confusion_matrix.png")
-            # mlflow.log_figure(feature_importance_plot,
-            #                   "feature_importance.png")
+            mlflow.log_figure(feature_importance_plot,
+                              "feature_importance.png")
             print("figures saved with mlflow")
-            # pred_plot.savefig("../images/predictions_plot.png")
+            pred_plot.savefig("../images/predictions_plot.png")
             
             feature_importance_plot.savefig("../images/feature_importance.png")
             # print("figures saved")
@@ -114,9 +114,9 @@ class TrainingPipeline(Pipeline):
             # print("Saving artifacts")
             mlflow.log_dict(feature_importance, "feature_importance.json")
             print("saving dict")
-        # model_name = self.make_model_name(experiment_name, run_name)
-        # mlflow.sklearn.log_model(
-        #     sk_model=self.__pipeline, artifact_path='models', registered_model_name=model_name)
+        model_name = self.make_model_name(experiment_name, run_name)
+        mlflow.sklearn.log_model(
+            sk_model=self.__pipeline, artifact_path='models', registered_model_name=model_name)
         print('Run - %s is logged to Experiment - %s' %
               (run_name, experiment_name))
         return run_metrics

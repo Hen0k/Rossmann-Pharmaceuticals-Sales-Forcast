@@ -4,8 +4,8 @@ from src.cleaning import CleanDataFrame
 from src.rotating_logs import get_rotating_log
 
 
-logger = get_rotating_log(
-    filename='data_exploration.log', logger_name='AnalysisLogger')
+#logger = get_rotating_log(
+    # filename='data_exploration.log', logger_name='AnalysisLogger')
 
 
 class Analysis:
